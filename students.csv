@@ -1,0 +1,9 @@
+roll_no, name           , department, section, image_path      , email               , phone
+      1, Prakash Hembrom, CSE       , A      , students/1.jpg  , phembrom35@gmail.com, 7894561230
+     69, Virat          , EEE       , D      , students/69.webp, virat@gmail.com     , 7412589630
+      2, Vishnu         , CSE       , A      , students/2.jpg  , vishu@gmail.com     , 1234567890
+      3, Vinita         , EEE       , C      , students/3.png  , ol@gmail.com        , 7894562130
+      4, Preety sinha   , CSE       , D      , students/4.png  , preety@gmail.com    , 7412589630
+     21, Prashant kumar , BBA       , Q      , students/21.jpg , bba@gmail.com       , 6522456806
+     87, prashantkr     , phd       , e      , students/87.jpg , op@gmail.com        , 7854965606
+     54, ANKIT          , bba       , E      , students/54.jpg , asdfglkj@gmail.com  , 7866954503
