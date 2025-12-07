@@ -1,14 +1,3 @@
-"""
-Emotion-Aware Virtual Classroom Monitoring System
--------------------------------------------------
-- Webcam capture
-- Face detection (OpenCV Haar Cascade)
-- Emotion detection (DeepFace)
-- Simple attention estimation
-- Face recognition for attendance
-- Engagement report as CSV with:
-  roll no, name, department, section, date, time
-"""
 
 import cv2
 import os
@@ -17,22 +6,21 @@ from collections import Counter
 from deepface import DeepFace
 from datetime import datetime
 
-# --------------- CONFIG ---------------
 
 STUDENTS_CSV_PATH = "students.csv"
 CLASS_REPORT_PATH = "class_report.csv"
 
-# Face recognition config
+
 FACE_MATCH_THRESHOLD = 0.6       # relaxed a bit
 FACE_MODEL_NAME = "VGG-Face"     # DeepFace model to use
 DEBUG_MATCH = False              # set True to see distances in console
 
-# Performance config
+
 FRAME_TARGET_WIDTH = 640         # resize camera frame width
 PROCESS_EVERY_N_FRAMES = 3       # do heavy DeepFace work every Nth frame
 
 
-# --------------- DATA LOADING ---------------
+
 
 def load_students(csv_path):
     """
@@ -44,26 +32,25 @@ def load_students(csv_path):
 
     df = pd.read_csv(csv_path)
 
-    # 1) Show original columns
+   
     original_cols = list(df.columns)
     print("Original columns in students.csv:", original_cols)
 
-    # 2) Strip spaces around each column name
     clean_map = {col: col.strip() for col in df.columns}
     df = df.rename(columns=clean_map)
 
-    # 3) Strip spaces inside important string columns
+   
     for col in ["roll_no", "name", "department", "section", "image_path", "email", "phone"]:
         if col in df.columns:
             df[col] = df[col].astype(str).str.strip()
 
-    # 4) Show cleaned columns + first row for debug
+  
     print("Cleaned columns:", list(df.columns))
     print("First row after cleaning (if any):")
     if not df.empty:
         print(df.iloc[0])
 
-    # 5) Check required columns
+ 
     required = {"roll_no", "name", "department", "section", "image_path"}
     if not required.issubset(df.columns):
         raise ValueError(
@@ -96,7 +83,7 @@ def init_attendance_dict(students_df):
     return attendance
 
 
-# --------------- HELPER FUNCTIONS ---------------
+
 
 def identify_student(face_roi, students_df):
     """
@@ -243,15 +230,15 @@ def open_camera():
     return None
 
 
-# --------------- MAIN ---------------
+
 
 def main():
-    # Record session date & time
+   
     now = datetime.now()
     session_date = now.date().isoformat()
     session_time = now.strftime("%H:%M:%S")
 
-    # Load students
+    
     try:
         print("Loading students database...")
         students_df = load_students(STUDENTS_CSV_PATH)
@@ -288,7 +275,7 @@ def main():
 
         total_frames += 1
 
-        # ✅ Resize frame to smaller width for speed
+       
         h, w = frame.shape[:2]
         if w > FRAME_TARGET_WIDTH:
             scale = FRAME_TARGET_WIDTH / float(w)
@@ -301,7 +288,7 @@ def main():
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-        # Do heavy DeepFace only every Nth frame
+      
         do_heavy = (total_frames % PROCESS_EVERY_N_FRAMES == 0)
 
         faces = face_cascade.detectMultiScale(
@@ -312,7 +299,7 @@ def main():
             flags=cv2.CASCADE_SCALE_IMAGE
         )
 
-        # Show how many faces are detected
+    
         cv2.putText(
             frame,
             f"Faces: {len(faces)}",
@@ -327,7 +314,7 @@ def main():
             face_roi = frame[y:y + h_box, x:x + w_box]
 
             if do_heavy:
-                # Full pipeline: emotion + recognition + attendance update
+               
                 dominant_emotion = get_dominant_emotion(face_roi)
                 attention_status, color = estimate_attention_status(
                     x, y, w_box, h_box, w, h
@@ -379,13 +366,13 @@ def main():
                     2
                 )
             else:
-                # Light mode: just draw box, no DeepFace
+               
                 _, color = "Detecting...", (0, 255, 255)
                 cv2.rectangle(frame, (x, y), (x + w_box, y + h_box), color, 1)
 
         cv2.imshow("Emotion-Aware Classroom Monitor", frame)
 
-        # ✅ Always check 'q' on EVERY loop (even when not doing heavy work)
+      
         if cv2.waitKey(1) & 0xFF == ord("q"):
             print("👋 Ending session...")
             break
@@ -393,7 +380,6 @@ def main():
     cap.release()
     cv2.destroyAllWindows()
 
-    # --------------- APPEND SESSION REPORT ---------------
     print("Generating session report...")
     report_df = compute_session_report(attendance, total_frames, session_date, session_time)
 
@@ -412,3 +398,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
