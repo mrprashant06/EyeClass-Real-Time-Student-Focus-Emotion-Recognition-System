@@ -23,14 +23,12 @@ Roll No, Name           , Department, Section, Session Date, Session Time, Statu
       2, Vishnu         , CSE       , A      , 2025-11-28  , 23:24:38    , Absent ,                    0.0 ,              0.0, N/A
       3, Vinita         , EEE       , C      , 2025-11-28  , 23:24:38    , Absent ,                    0.0 ,              0.0, N/A
       4, Preety sinha   , CSE       , D      , 2025-11-28  , 23:24:38    , Absent ,                    0.0 ,              0.0, N/A
-     34, Chomu          , CSE       , E      , 2025-11-28  , 23:24:38    , Absent ,                    0.0 ,              0.0, N/A
-      1, Prakash Hembrom, CSE       , A      , 2025-11-28  , 23:27:29    , Absent ,                    0.0 ,              0.0, N/A
+         1, Prakash Hembrom, CSE       , A      , 2025-11-28  , 23:27:29    , Absent ,                    0.0 ,              0.0, N/A
      69, Virat          , EEE       , D      , 2025-11-28  , 23:27:29    , Absent ,                    0.0 ,              0.0, N/A
       2, Vishnu         , CSE       , A      , 2025-11-28  , 23:27:29    , Absent ,                    0.0 ,              0.0, N/A
       3, Vinita         , EEE       , C      , 2025-11-28  , 23:27:29    , Absent ,                    0.0 ,              0.0, N/A
       4, Preety sinha   , CSE       , D      , 2025-11-28  , 23:27:29    , Absent ,                    0.0 ,              0.0, N/A
-     34, Chomu          , CSE       , E      , 2025-11-28  , 23:27:29    , Absent ,                    0.0 ,              0.0, N/A
-     21, Prashant kumar , BBA       , Q      , 2025-11-28  , 23:27:29    , Absent ,                    0.0 ,              0.0, N/A
+       21, Prashant kumar , BBA       , Q      , 2025-11-28  , 23:27:29    , Absent ,                    0.0 ,              0.0, N/A
       1, Prakash Hembrom, CSE       , A      , 2025-11-28  , 23:36:49    , Absent ,                    0.0 ,              0.0, N/A
      69, Virat          , EEE       , D      , 2025-11-28  , 23:36:49    , Absent ,                    0.0 ,              0.0, N/A
       2, Vishnu         , CSE       , A      , 2025-11-28  , 23:36:49    , Absent ,                    0.0 ,              0.0, N/A
@@ -44,7 +42,6 @@ Roll No, Name           , Department, Section, Session Date, Session Time, Statu
       2, Vishnu         , CSE       , A      , 2025-11-30  , 00:46:39    , Absent ,                    0.0 ,              0.0, N/A
       3, Vinita         , EEE       , C      , 2025-11-30  , 00:46:39    , Absent ,                    0.0 ,              0.0, N/A
       4, Preety sinha   , CSE       , D      , 2025-11-30  , 00:46:39    , Absent ,                    0.0 ,              0.0, N/A
-     34, Chomu          , CSE       , E      , 2025-11-30  , 00:46:39    , Absent ,                    0.0 ,              0.0, N/A
      21, Prashant kumar , BBA       , Q      , 2025-11-30  , 00:46:39    , Absent ,                    0.0 ,              0.0, N/A
      87, prashantkr     , phd       , e      , 2025-11-30  , 00:46:39    , Present,                    1.41,            100.0, neutral
       1, Prakash Hembrom, CSE       , A      , 2025-11-30  , 00:51:58    , Absent ,                    0.0 ,              0.0, N/A
@@ -52,16 +49,14 @@ Roll No, Name           , Department, Section, Session Date, Session Time, Statu
       2, Vishnu         , CSE       , A      , 2025-11-30  , 00:51:58    , Absent ,                    0.0 ,              0.0, N/A
       3, Vinita         , EEE       , C      , 2025-11-30  , 00:51:58    , Absent ,                    0.0 ,              0.0, N/A
       4, Preety sinha   , CSE       , D      , 2025-11-30  , 00:51:58    , Absent ,                    0.0 ,              0.0, N/A
-     34, Chomu          , CSE       , E      , 2025-11-30  , 00:51:58    , Absent ,                    0.0 ,              0.0, N/A
-     21, Prashant kumar , BBA       , Q      , 2025-11-30  , 00:51:58    , Absent ,                    0.0 ,              0.0, N/A
+      21, Prashant kumar , BBA       , Q      , 2025-11-30  , 00:51:58    , Absent ,                    0.0 ,              0.0, N/A
      87, prashantkr     , phd       , e      , 2025-11-30  , 00:51:58    , Absent ,                    0.0 ,              0.0, N/A
       1, Prakash Hembrom, CSE       , A      , 2025-11-30  , 00:57:03    , Absent ,                    0.0 ,              0.0, N/A
      69, Virat          , EEE       , D      , 2025-11-30  , 00:57:03    , Absent ,                    0.0 ,              0.0, N/A
       2, Vishnu         , CSE       , A      , 2025-11-30  , 00:57:03    , Absent ,                    0.0 ,              0.0, N/A
       3, Vinita         , EEE       , C      , 2025-11-30  , 00:57:03    , Absent ,                    0.0 ,              0.0, N/A
       4, Preety sinha   , CSE       , D      , 2025-11-30  , 00:57:03    , Absent ,                    0.0 ,              0.0, N/A
-     34, Chomu          , CSE       , E      , 2025-11-30  , 00:57:03    , Absent ,                    0.0 ,              0.0, N/A
-     21, Prashant kumar , BBA       , Q      , 2025-11-30  , 00:57:03    , Absent ,                    0.0 ,              0.0, N/A
+      21, Prashant kumar , BBA       , Q      , 2025-11-30  , 00:57:03    , Absent ,                    0.0 ,              0.0, N/A
      87, prashantkr     , phd       , e      , 2025-11-30  , 00:57:03    , Absent ,                    0.0 ,              0.0, N/A
      54, ANKIT          , bba       , E      , 2025-11-30  , 00:57:03    , Absent ,                    0.0 ,              0.0, N/A
       1, Prakash Hembrom, CSE       , A      , 2025-12-01  , 14:50:08    , Absent ,                    0.0 ,              0.0, N/A
@@ -98,3 +93,4 @@ Roll No, Name           , Department, Section, Session Date, Session Time, Statu
 21,Prashant kumar,BBA,Q,2025-12-05,14:59:51,Absent,0.0,0.0,N/A
 87,prashantkr,phd,e,2025-12-05,14:59:51,Present,5.63,92.31,neutral
 54,ANKIT,bba,E,2025-12-05,14:59:51,Absent,0.0,0.0,N/A
+
