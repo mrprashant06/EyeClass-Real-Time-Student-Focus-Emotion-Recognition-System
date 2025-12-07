@@ -2,7 +2,7 @@ import os
 import csv
 from flask import Flask, render_template, request, redirect, url_for, flash
 
-# ---------------- CONFIG ----------------
+
 
 UPLOAD_FOLDER = "students"       # where profile images are saved
 STUDENTS_CSV = "students.csv"   # same file used by your main.py
@@ -13,7 +13,7 @@ app = Flask(__name__)
 app.secret_key = "some_secret_key_for_flask"  # needed for flash messages
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
-# Make sure upload folder exists
+
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 
@@ -38,10 +38,10 @@ def check_existing(roll_no=None, email=None, phone=None):
         reader = csv.DictReader(f)
 
         for row in reader:
-            # roll_no will exist in your old file
+            
             row_roll = row.get("roll_no", "").strip()
 
-            # email/phone might NOT exist in old header → use .get()
+            
             row_email = row.get("email", "").strip().lower()
             row_phone = row.get("phone", "").strip()
 
@@ -58,7 +58,7 @@ def check_existing(roll_no=None, email=None, phone=None):
 
 
 
-# ---------------- ROUTES ----------------
+
 
 @app.route("/", methods=["GET", "POST"])
 def register():
@@ -73,7 +73,7 @@ def register():
         phone = request.form.get("phone", "").strip()
         file = request.files.get("photo")
 
-        # ---------- Basic required fields ----------
+        
         if not roll_no or not name or not department or not section:
             flash("Roll No, Name, Department, and Section are required.", "error")
             return redirect(url_for("register"))
@@ -86,12 +86,12 @@ def register():
             flash("Phone number is required.", "error")
             return redirect(url_for("register"))
 
-        # ---------- Phone validation: exactly 10 digits ----------
+        
         if not phone.isdigit() or len(phone) != 10:
             flash("Phone number must contain exactly 10 digits.", "error")
             return redirect(url_for("register"))
 
-        # ---------- Uniqueness checks ----------
+       
         exists, field = check_existing(roll_no=roll_no, email=email, phone=phone)
         if exists:
             if field == "roll":
@@ -102,12 +102,12 @@ def register():
                 flash(f"Phone {phone} is already registered.", "error")
             return redirect(url_for("register"))
 
-        # ---------- Photo required ----------
+       
         if not file or file.filename == "":
             flash("Please upload a profile photo.", "error")
             return redirect(url_for("register"))
 
-        # ---------- Save image file ----------
+    
         ext = os.path.splitext(file.filename)[1].lower() or ".jpg"
         filename = f"{roll_no}{ext}"
         save_path = os.path.join(app.config["UPLOAD_FOLDER"], filename)
@@ -115,7 +115,6 @@ def register():
 
         image_path = save_path.replace("\\", "/")
 
-        # ---------- Append to students.csv ----------
         with open(STUDENTS_CSV, "a", newline="", encoding="utf-8") as f:
             writer = csv.DictWriter(f, fieldnames=CSV_HEADER)
             writer.writerow({
@@ -131,9 +130,10 @@ def register():
         flash("Registration successful! You are now registered.", "success")
         return redirect(url_for("register"))
 
-    # GET request → show registration form
+
     return render_template("register.html")
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
