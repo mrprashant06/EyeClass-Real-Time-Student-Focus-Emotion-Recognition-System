@@ -4,10 +4,10 @@ from tkinter import ttk
 import subprocess
 import os
 
-# Path to your virtualenv python
+
 PYTHON_EXE = r".\venv\Scripts\python.exe"
 
-# Script names
+
 REGISTER_SCRIPT = "register_student.py"
 MAIN_SCRIPT = "main.py"
 REPORT_FILE = "class_report.csv"
@@ -127,7 +127,7 @@ def main():
     root = tk.Tk()
     root.title("Teacher Portal - Emotion Aware Classroom")
 
-    # Center window
+   
     window_width = 480
     window_height = 360
     screen_width = root.winfo_screenwidth()
@@ -139,11 +139,10 @@ def main():
 
     build_modern_styles(root)
 
-    # Outer frame (card)
+  
     outer = ttk.Frame(root, style="Card.TFrame", padding=20)
     outer.place(relx=0.5, rely=0.5, anchor="center")
 
-    # Title
     title_label = ttk.Label(outer, text="Teacher Portal", style="Title.TLabel")
     title_label.grid(row=0, column=0, sticky="w")
 
@@ -154,7 +153,7 @@ def main():
     )
     subtitle_label.grid(row=1, column=0, pady=(0, 15), sticky="w")
 
-    # Buttons container
+  
     buttons_frame = ttk.Frame(outer, style="Card.TFrame")
     buttons_frame.grid(row=2, column=0, sticky="nsew")
 
@@ -205,3 +204,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
