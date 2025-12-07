@@ -9,19 +9,18 @@ CLASS_REPORT_CSV = "class_report.csv"
 app = Flask(__name__)
 
 
-# ---------- Helper functions ----------
 
 def load_students():
     if not os.path.exists(STUDENTS_CSV):
         return pd.DataFrame(columns=["roll_no", "name", "department", "section", "image_path", "email", "phone"])
 
     df = pd.read_csv(STUDENTS_CSV)
-    # Clean column names and strip extra spaces
+   
     df.columns = [c.strip() for c in df.columns]
     for col in df.columns:
         df[col] = df[col].astype(str).str.strip()
 
-    # NEW: also store just the image filename (e.g. "1.jpg", "22.png")
+   
     if "image_path" in df.columns:
         df["image_file"] = df["image_path"].apply(lambda p: os.path.basename(str(p)))
     else:
@@ -46,7 +45,7 @@ def load_reports():
     return df
 
 
-# ---------- Routes ----------
+
 
 @app.route("/")
 def home():
@@ -70,7 +69,6 @@ def home():
         present_count = 0
         absent_count = total_students  # if no report, assume all absent (for display)
 
-    # Recent sessions (list of unique dates + time)
     recent_sessions = []
     if not reports_df.empty:
         recent_sessions = (
@@ -108,7 +106,7 @@ def students():
     if section:
         filtered_df = filtered_df[filtered_df["section"].str.lower() == section.lower()]
 
-    # For dropdowns
+  
     departments = sorted(students_df["department"].dropna().unique().tolist()) if not students_df.empty else []
     sections = sorted(students_df["section"].dropna().unique().tolist()) if not students_df.empty else []
 
@@ -189,3 +187,4 @@ def student_image(filename):
 
 if __name__ == "__main__":
     app.run(debug=True)
+
